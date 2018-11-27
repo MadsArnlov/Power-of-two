@@ -28,7 +28,10 @@ def easy():
         if current_time <= amount_of_time:
             s = input("What is {}*{} = ".format(k, a))
             if s is not "":
-                x = eval(s.split("*")[0])
+                if s.isdigit():
+                    x = eval(s)
+                else:
+                    x = 0
             else:
                 x = None
             if isinstance(x, int) or isinstance(x, float):
@@ -37,7 +40,7 @@ def easy():
                     b += 1
                     print("Correct!")
                 else:
-                    print("You made a mistake, {}*{} = {}, not {}.".format(k, a, PowerOfTwo, x))
+                    print("You made a mistake, {:.0f}*{} = {}, not {}.".format(k, a, PowerOfTwo, x))
                     if score > record:
                         saving = np.array([user, score, "EASY"])
                         np.savetxt("Record_easy.txt", saving, fmt="%s", newline=", ")
@@ -84,7 +87,10 @@ def medium():
         if current_time <= amount_of_time:
             s = input("What is {:.0f}*{} = ".format(PowerOfTwo/2, a))
             if s is not "":
-                x = eval(s.split("*")[0])
+                if s.isdigit():
+                    x = eval(s)
+                else:
+                    x = 0
             else:
                 x = None
             if isinstance(x, int) or isinstance(x, float):
@@ -93,7 +99,7 @@ def medium():
                     b += 2
                     print("Correct!")
                 else:
-                    print("You made a mistake, {}*{} = {}, not {}.".format(k, a, PowerOfTwo, x))
+                    print("You made a mistake, {:.0f}*{} = {}, not {}.".format(PowerOfTwo/2, a, PowerOfTwo, x))
                     if score > record:
                         saving = np.array([user, score, "MEDIUM"])
                         np.savetxt("Record_medium.txt", saving, fmt="%s", newline=", ")
@@ -106,7 +112,6 @@ def medium():
                         break
                     else:
                         break
-            k = PowerOfTwo
         else:
             print("You have run out of time! You got {} Pharao points(PP) in {:.2f} seconds".format(score - 100, current_time))
             if score > record:
@@ -140,7 +145,10 @@ def hard():
         if current_time <= amount_of_time:
             s = input("What is {:.0f}*{} = ".format(PowerOfTwo/2, a))
             if s is not "":
-                x = eval(s.split("*")[0])
+                if s.isdigit():
+                    x = eval(s.split("*")[0])
+                else:
+                    x = 0
             else:
                 x = None
             if isinstance(x, int) or isinstance(x, float):
@@ -149,7 +157,7 @@ def hard():
                     b += 4
                     print("Correct!")
                 else:
-                    print("You made a mistake, {}*{} = {}, not {}.".format(k, a, PowerOfTwo, x))
+                    print("You made a mistake, {:.0f}*{} = {}, not {}.".format(PowerOfTwo/2, a, PowerOfTwo, x))
                     if score > record:
                         saving = np.array([user, score, "HARD"])
                         np.savetxt("Record_hard.txt", saving, fmt="%s", newline=", ")
@@ -162,7 +170,6 @@ def hard():
                         break
                     else:
                         break
-            k = PowerOfTwo
         else:
             print("You have run out of time! You got {} Pharao points(PP) in {:.2f} seconds".format(score - 300, current_time))
             if score > record:
