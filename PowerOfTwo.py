@@ -197,11 +197,3 @@ def difficulty():
 
 user = input("Username = ").upper()
 difficulty()
-
-#if len(sys.argv) == 2:
-#    if sys.argv[1] == "easy":
-#        easy()
-#    elif sys.argv[1] == "medium":
-#        medium()
-#    elif sys.argv[1] == "hard":
-#        hard()
