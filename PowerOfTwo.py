@@ -76,7 +76,6 @@ def medium():
     record = infile[1]
 
     score = 0
-    k = 2
     a = 2
     b = 2
     x = 0
@@ -134,7 +133,6 @@ def hard():
     record = infile[1]
 
     score = 0
-    k = 2
     a = 2
     b = 2
     x = 0
